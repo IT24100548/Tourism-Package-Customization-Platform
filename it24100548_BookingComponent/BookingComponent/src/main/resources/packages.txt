@@ -1,0 +1,3 @@
+101,Beach Escape,Maldives,500.0,Enjoy a luxury trip to the Maldives.
+102,Adventure Trek,Nepal,400.0,Hike through the beautiful mountains of Nepal.
+103,Galle Fort,Sri lanka,100.0,place located in Sri Lanka Galle Dutch Fort
