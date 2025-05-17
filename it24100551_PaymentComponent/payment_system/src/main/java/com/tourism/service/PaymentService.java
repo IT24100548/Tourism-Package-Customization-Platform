@@ -48,4 +48,66 @@ public class PaymentService {
         }
         return payments;
     }
+      // Get payment by payment number
+    public Payment getPaymentByNumber(String paymentNumber) throws IOException {
+        return getAllPayments().stream()
+                .filter(p -> p.getPaymentNumber().equals(paymentNumber))
+                .findFirst()
+                .orElse(null);
+    }
+
+    // Update payment
+    public boolean updatePayment(Payment payment) throws IOException {
+        List<Payment> payments = getAllPayments();
+        boolean updated = false;
+
+        for (int i = 0; i < payments.size(); i++) {
+            if (payments.get(i).getPaymentNumber().equals(payment.getPaymentNumber())) {
+                payments.set(i, payment);
+                updated = true;
+                break;
+            }
+        }
+
+        if (updated) {
+            savePayments(payments);
+        }
+        return updated;
+    }
+
+    // Delete payment
+    public boolean deletePayment(String paymentNumber) throws IOException {
+        List<Payment> payments = getAllPayments();
+        List<Payment> updatedPayments = payments.stream()
+                .filter(p -> !p.getPaymentNumber().equals(paymentNumber))
+                .collect(Collectors.toList());
+
+        if (payments.size() != updatedPayments.size()) {
+            savePayments(updatedPayments);
+            return true;
+        }
+        return false;
+    }
+
+    // Get payments by customer mobile number
+    public List<Payment> getPaymentsByMobileNumber(String mobileNumber) throws IOException {
+        return getAllPayments().stream()
+                .filter(p -> p.getMobileNumber().equals(mobileNumber))
+                .collect(Collectors.toList());
+    }
+
+    // Generate unique payment number
+    private String generatePaymentNumber() throws IOException {
+        LocalDateTime now = LocalDateTime.now();
+        String dateStr = now.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+        return "PAY" + dateStr;
+    }
+
+    // Save all payments to file
+    private void savePayments(List<Payment> payments) throws IOException {
+        List<String> lines = payments.stream()
+                .map(Payment::toFileString)
+                .collect(Collectors.toList());
+        Files.write(Paths.get(FILE_PATH), lines, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+    }
 }
