@@ -50,4 +50,47 @@ public class PaymentService {
                 }
             }
         }
+        return payments;
+    }
+
+    // Get payment by payment number
+    public Payment getPaymentByNumber(String paymentNumber) throws IOException {
+        return getAllPayments().stream()
+                .filter(p -> p.getPaymentNumber().equals(paymentNumber))
+                .findFirst()
+                .orElse(null);
+    }
+
+    // Update payment
+    public boolean updatePayment(Payment payment) throws IOException {
+        List<Payment> payments = getAllPayments();
+        boolean updated = false;
+
+        for (int i = 0; i < payments.size(); i++) {
+            if (payments.get(i).getPaymentNumber().equals(payment.getPaymentNumber())) {
+                payments.set(i, payment);
+                updated = true;
+                break;
+            }
+        }
+
+        if (updated) {
+            savePayments(payments);
+        }
+        return updated;
+    }
+
+    // Delete payment
+    public boolean deletePayment(String paymentNumber) throws IOException {
+        List<Payment> payments = getAllPayments();
+        List<Payment> updatedPayments = payments.stream()
+                .filter(p -> !p.getPaymentNumber().equals(paymentNumber))
+                .collect(Collectors.toList());
+
+        if (payments.size() != updatedPayments.size()) {
+            savePayments(updatedPayments);
+            return true;
+        }
+        return false;
+    }
 }
