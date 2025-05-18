@@ -521,7 +521,7 @@
                     <td><%= bk.getPackageId() %></td>
                     <td><%= bk.getBookingDate() %></td>
                     <td><%= bk.getNumberOfPeople() %></td>
-                    <td class="price">$<%= String.format("%.2f", bk.getTotalPrice()) %></td>
+                    <td class="price">Rs.<%= String.format("%.2f", bk.getTotalPrice()) %></td>
                     <td>
                     <span class="status <%= statusClass %>">
                         <i class="fas fa-<%= bk.getStatus().equalsIgnoreCase("confirmed") ? "check-circle" : bk.getStatus().equalsIgnoreCase("pending") ? "clock" : "times-circle" %> status-icon"></i>
