@@ -49,4 +49,58 @@ public class PaymentNotificationUtil {
         
         return baos.toByteArray();
     }
+
+    private static void sendEmailWithAttachment(Payment payment, byte[] pdfAttachment) 
+            throws MessagingException {
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", SMTP_HOST);
+        props.put("mail.smtp.port", SMTP_PORT);
+
+        Session session = Session.getInstance(props, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(SMTP_USERNAME, SMTP_PASSWORD);
+            }
+        });
+
+        Message message = new MimeMessage(session);
+        message.setFrom(new InternetAddress(SMTP_USERNAME));
+        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(payment.getEmail()));
+        message.setSubject("Payment Confirmation - " + payment.getPaymentNumber());
+
+        // Create the message body
+        String emailBody = String.format(
+            "Dear %s,\n\n" +
+            "Thank you for your payment. Your payment has been %s.\n\n" +
+            "Payment Details:\n" +
+            "Payment Number: %s\n" +
+            "Amount: $%.2f\n\n" +
+            "Please find attached your payment receipt.\n\n" +
+            "Best regards,\n" +
+            "Tourism Package Team",
+            payment.getCustomerName(),
+            payment.getPaymentStatus().toLowerCase(),
+            payment.getPaymentNumber(),
+            payment.getAmount()
+        );
+
+        // Create multipart message
+        Multipart multipart = new MimeMultipart();
+
+        // Add text part
+        MimeBodyPart textPart = new MimeBodyPart();
+        textPart.setText(emailBody);
+        multipart.addBodyPart(textPart);
+
+        // Add PDF attachment
+        MimeBodyPart pdfPart = new MimeBodyPart();
+        pdfPart.setContent(pdfAttachment, "application/pdf");
+        pdfPart.setFileName("payment_receipt_" + payment.getPaymentNumber() + ".pdf");
+        multipart.addBodyPart(pdfPart);
+
+        message.setContent(multipart);
+        Transport.send(message);
+    }
 }
