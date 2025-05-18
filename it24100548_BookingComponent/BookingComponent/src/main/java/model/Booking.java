@@ -1,33 +1,22 @@
 package model;
 
-public class Booking {
-    private String bookingId;
-    private String fullName;
-    private String phoneNumber;
-    private String address;
-    private String gender;
-    private String email;
-    private String packageId;
-    private String bookingDate;
-    private String status;
-    private String specialRequirements;  // new, optional
-    private int numberOfPeople;
-    private double totalPrice;
+public abstract class Booking {
+    protected String bookingId;
+    protected String fullName;
+    protected String phoneNumber;
+    protected String address;
+    protected String gender;
+    protected String email;
+    protected String packageId;
+    protected String bookingDate;
+    protected String status;
+    protected String specialRequirements;
+    protected int numberOfPeople;
+    protected double totalPrice;
 
-    public Booking(
-            String bookingId,
-            String fullName,
-            String phoneNumber,
-            String address,
-            String gender,
-            String email,
-            String packageId,
-            String bookingDate,
-            String status,
-            String specialRequirements,
-            int numberOfPeople,
-            double totalPrice
-    ) {
+    public Booking(String bookingId, String fullName, String phoneNumber, String address,
+                   String gender, String email, String packageId, String bookingDate,
+                   String status, String specialRequirements, int numberOfPeople) {
         this.bookingId = bookingId;
         this.fullName = fullName;
         this.phoneNumber = phoneNumber;
@@ -37,14 +26,14 @@ public class Booking {
         this.packageId = packageId;
         this.bookingDate = bookingDate;
         this.status = status;
-        // avoid null
         this.specialRequirements = (specialRequirements == null ? "" : specialRequirements);
         this.numberOfPeople = numberOfPeople;
-        this.totalPrice = totalPrice;
     }
 
-    // --- ALL GETTERS & SETTERS ---
+    // Abstract method to be overridden
+    public abstract double calculateTotalPrice(double basePrice);
 
+    // Getters and Setters
     public String getBookingId() { return bookingId; }
     public void setBookingId(String bookingId) { this.bookingId = bookingId; }
 
@@ -83,49 +72,53 @@ public class Booking {
     public double getTotalPrice() { return totalPrice; }
     public void setTotalPrice(double totalPrice) { this.totalPrice = totalPrice; }
 
-    // --- Pipe-separated Serialization/Deserialization ---
-
+    // Serialize to string (first token is the class name)
     @Override
     public String toString() {
-        // No need to sanitize commas now because we're using |
         return String.join("|",
-                bookingId,
-                fullName,
-                phoneNumber,
-                address,
-                gender,
-                email,
-                packageId,
-                bookingDate,
-                status,
-                (specialRequirements == null ? "" : specialRequirements),
+                this.getClass().getSimpleName(),  // SoloBooking or GroupBooking
+                bookingId, fullName, phoneNumber, address, gender,
+                email, packageId, bookingDate, status,
+                specialRequirements,
                 String.valueOf(numberOfPeople),
                 String.valueOf(totalPrice)
         );
     }
 
+    // Deserialize from string (factory method)
     public static Booking fromString(String line) {
-        // Expect exactly 12 columns separated by |
-        String[] parts = line.split("\\|", -1);  // <- updated delimiter
-        if (parts.length != 12) {
-            System.err.println("⚠️ Invalid booking record (expected 12 fields): " + line);
+        String[] parts = line.split("\\|", -1);
+        if (parts.length != 13) {
+            System.err.println("Invalid booking record (expected 13 fields): " + line);
             return null;
         }
+
+        String type = parts[0];
         try {
-            return new Booking(
-                    parts[0],                // bookingId
-                    parts[1],                // fullName
-                    parts[2],                // phoneNumber
-                    parts[3],                // address
-                    parts[4],                // gender
-                    parts[5],                // email
-                    parts[6],                // packageId
-                    parts[7],                // bookingDate
-                    parts[8],                // status
-                    parts[9],                // specialRequirements
-                    Integer.parseInt(parts[10]),  // numberOfPeople
-                    Double.parseDouble(parts[11]) // totalPrice
-            );
+            String bookingId = parts[1];
+            String fullName = parts[2];
+            String phoneNumber = parts[3];
+            String address = parts[4];
+            String gender = parts[5];
+            String email = parts[6];
+            String packageId = parts[7];
+            String bookingDate = parts[8];
+            String status = parts[9];
+            String specialRequirements = parts[10];
+            int numberOfPeople = Integer.parseInt(parts[11]);
+            double totalPrice = Double.parseDouble(parts[12]);
+
+            if (type.equals("SoloBooking")) {
+                return new SoloBooking(bookingId, fullName, phoneNumber, address, gender, email,
+                        packageId, bookingDate, status, specialRequirements, totalPrice);
+            } else if (type.equals("GroupBooking")) {
+                return new GroupBooking(bookingId, fullName, phoneNumber, address, gender, email,
+                        packageId, bookingDate, status, specialRequirements, numberOfPeople, totalPrice);
+            } else {
+                System.err.println("Unknown booking type: " + type);
+                return null;
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
             return null;

@@ -1,191 +1,283 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.List, model.Booking" %>
+
 <html>
 <head>
     <title>Booking Management</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body, html {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --primary: #4361ee;
+            --primary-light: #eef2ff;
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --gray-light: #f3f4f6;
+            --border-radius: 12px;
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            color: #2c3e50;
-            background: #f4f4f4;
+        }
+
+        body, html {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--gray-light);
+            color: var(--dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         .navbar-pro {
             background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: var(--shadow);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding: 16px 32px;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 50;
         }
 
         .navbar-pro .logo {
             font-size: 20px;
-            font-weight: bold;
-            color: #2c3e50;
+            font-weight: 700;
+            color: var(--primary);
             text-decoration: none;
-        }
-
-        .navbar-pro .nav-links {
             display: flex;
-            gap: 20px;
+            align-items: center;
+            gap: 10px;
         }
 
-        .navbar-pro .nav-links a {
-            text-decoration: none;
-            color: #3498db;
-            font-size: 16px;
+        .logo-icon {
+            color: var(--primary);
+            font-size: 22px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
             font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: background 0.3s, color 0.3s;
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            padding: 8px 0;
+            position: relative;
         }
 
-        .navbar-pro .nav-links a:hover {
-            background: #3498db;
-            color: white;
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .dashboard {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 32px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
         }
 
         h1 {
-            margin-bottom: 40px;
-            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark);
         }
 
         .stats-container {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-            justify-content: center;
+            margin-bottom: 32px;
         }
 
         .stat-card {
-            flex: 1;
-            min-width: 220px;
             background: white;
-            border-radius: 10px;
-            padding: 30px 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            text-align: center;
-            border-top: 4px solid transparent;
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 4px solid transparent;
         }
 
-        .stat-total { border-top-color: #2c3e50; }
-        .stat-confirmed { border-top-color: #27ae60; }
-        .stat-pending { border-top-color: #f39c12; }
-        .stat-cancelled { border-top-color: #e74c3c; }
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-total { border-left-color: var(--primary); }
+        .stat-confirmed { border-left-color: var(--success); }
+        .stat-pending { border-left-color: var(--warning); }
+        .stat-cancelled { border-left-color: var(--danger); }
 
         .stat-value {
             font-size: 32px;
-            font-weight: bold;
-            color: #2c3e50;
+            font-weight: 700;
             margin-bottom: 8px;
+            color: var(--dark);
         }
 
         .stat-label {
+            font-size: 14px;
+            color: var(--gray);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-icon {
             font-size: 16px;
-            color: #7f8c8d;
+        }
+
+        .booking-table-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
         }
 
         .booking-table {
             width: 100%;
             border-collapse: collapse;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .booking-table th, .booking-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-light);
         }
 
         .booking-table th {
-            background-color: #f8f9fa;
-            padding: 18px;
-            text-align: left;
+            background-color: var(--light);
             font-weight: 600;
-            color: #2c3e50;
-            border-bottom: 2px solid #ecf0f1;
+            color: var(--gray);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
-        .booking-table td {
-            padding: 18px;
-            border-bottom: 1px solid #ecf0f1;
-            vertical-align: middle;
+        .booking-table tr:last-child td {
+            border-bottom: none;
         }
 
-        .booking-table tr:hover {
-            background-color: #f8f9fa;
+        .booking-table tr:hover td {
+            background-color: var(--primary-light);
         }
 
         .status {
-            display: inline-block;
-            padding: 6px 14px;
+            padding: 6px 12px;
             border-radius: 20px;
             font-size: 13px;
             font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
         }
 
-        .status-confirmed {
-            background-color: #d5f5e3;
-            color: #27ae60;
+        .status-confirmed { background: var(--success-light); color: var(--success); }
+        .status-pending { background: var(--warning-light); color: var(--warning); }
+        .status-cancelled { background: var(--danger-light); color: var(--danger); }
+
+        .status-icon {
+            font-size: 12px;
         }
 
-        .status-pending {
-            background-color: #fef9e7;
-            color: #f39c12;
-        }
-
-        .status-cancelled {
-            background-color: #fadbd8;
-            color: #e74c3c;
+        .action-btns {
+            display: flex;
+            gap: 8px;
         }
 
         .action-btn {
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 500;
             border: none;
-            margin-right: 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-btn i {
+            font-size: 12px;
         }
 
         .edit-btn {
-            background-color: #3498db;
+            background-color: var(--primary);
             color: white;
+        }
+
+        .edit-btn:hover {
+            background-color: #3a56d4;
         }
 
         .delete-btn {
-            background-color: #e74c3c;
+            background-color: var(--danger);
             color: white;
+        }
+
+        .delete-btn:hover {
+            background-color: #dc2626;
         }
 
         .customer-cell {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            display: block;
+            padding-left: 0;
         }
 
+
         .customer-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background-color: #3498db;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
             color: white;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
+            flex-shrink: 0;
         }
 
         .customer-info {
@@ -193,65 +285,165 @@
         }
 
         .customer-name {
-            font-weight: 500;
+            font-weight: 600;
+            margin-bottom: 2px;
         }
 
-        .customer-phone, .customer-email, .customer-address {
+        .customer-detail {
             font-size: 13px;
-            color: #7f8c8d;
-            margin-top: 2px;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
         }
 
-        .customer-phone i, .customer-email i, .customer-address i {
-            margin-right: 5px;
-            color: #3498db;
+        .customer-detail i {
+            width: 16px;
+            color: var(--gray);
+            font-size: 12px;
         }
 
         .customer-allergy {
-            font-size: 13px;
-            color: #e74c3c; /* red color */
-            margin-top: 2px;
+            color: var(--danger);
             font-weight: 500;
+            font-size: 13px;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .customer-allergy i {
-            margin-right: 5px;
-            color: #e74c3c;
+        .booking-type-badge {
+            padding: 4px 10px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .empty-state {
+            padding: 48px 20px;
+            text-align: center;
+            color: var(--gray);
+        }
+
+        .empty-icon {
+            font-size: 48px;
+            color: var(--gray-light);
+            margin-bottom: 16px;
+        }
+
+        .empty-text {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .new-booking-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .new-booking-btn:hover {
+            background-color: #3a56d4;
+        }
+
+        .price {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard {
+                padding: 24px 16px;
+            }
+
+            .booking-table th, .booking-table td {
+                padding: 12px 16px;
+            }
+
+            .customer-cell {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .action-btns {
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-pro {
+                padding: 16px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .booking-table-container {
+                overflow-x: auto;
+            }
         }
     </style>
+
 </head>
 <body>
 
-<!-- Navbar -->
 <div class="navbar-pro">
-    <a href="<%= request.getContextPath() %>/" class="logo">Booking Manager</a>
+    <a href="<%= request.getContextPath() %>/" class="logo">
+        <i class="fas fa-calendar-alt logo-icon"></i>
+        <span>Booking Manager</span>
+    </a>
     <div class="nav-links">
-        <a href="<%= request.getContextPath() %>/PackageListServlet">New Booking</a>
-        <a href="<%= request.getContextPath() %>/BookingHistoryServlet">Booking History</a>
+        <a href="<%= request.getContextPath() %>/PackageListServlet">
+            <i class="fas fa-plus-circle"></i> New Booking
+        </a>
+        <a href="<%= request.getContextPath() %>/BookingHistoryServlet">
+            <i class="fas fa-history"></i> Booking History
+        </a>
     </div>
 </div>
 
 <div class="dashboard">
-    <h1>Booking Management</h1>
+    <div class="dashboard-header">
+        <h1><i class="fas fa-calendar-check"></i> Booking Management</h1>
+        <a href="<%= request.getContextPath() %>/PackageListServlet" class="new-booking-btn">
+            <i class="fas fa-plus"></i> New Booking
+        </a>
+    </div>
 
     <%
         List<Booking> bookings = (List<Booking>) request.getAttribute("bookingsList");
-        int totalBookings = 0;
-        int confirmedCount = 0;
-        int pendingCount = 0;
-        int cancelledCount = 0;
-
+        int totalBookings = 0, confirmedCount = 0, pendingCount = 0, cancelledCount = 0;
         if (bookings != null) {
             totalBookings = bookings.size();
             for (Booking bk : bookings) {
                 String status = bk.getStatus().toLowerCase();
-                if (status.equals("confirmed")) {
-                    confirmedCount++;
-                } else if (status.equals("pending")) {
-                    pendingCount++;
-                } else if (status.equals("cancelled")) {
-                    cancelledCount++;
-                }
+                if ("confirmed".equals(status)) confirmedCount++;
+                else if ("pending".equals(status)) pendingCount++;
+                else if ("cancelled".equals(status)) cancelledCount++;
             }
         }
     %>
@@ -259,92 +451,122 @@
     <div class="stats-container">
         <div class="stat-card stat-total">
             <div class="stat-value"><%= totalBookings %></div>
-            <div class="stat-label">Total Bookings</div>
+            <div class="stat-label">
+                <i class="fas fa-calendar stat-icon"></i> Total Bookings
+            </div>
         </div>
         <div class="stat-card stat-confirmed">
             <div class="stat-value"><%= confirmedCount %></div>
-            <div class="stat-label">Confirmed</div>
+            <div class="stat-label">
+                <i class="fas fa-check-circle stat-icon"></i> Confirmed
+            </div>
         </div>
         <div class="stat-card stat-pending">
             <div class="stat-value"><%= pendingCount %></div>
-            <div class="stat-label">Pending</div>
+            <div class="stat-label">
+                <i class="fas fa-clock stat-icon"></i> Pending
+            </div>
         </div>
         <div class="stat-card stat-cancelled">
             <div class="stat-value"><%= cancelledCount %></div>
-            <div class="stat-label">Cancelled</div>
+            <div class="stat-label">
+                <i class="fas fa-times-circle stat-icon"></i> Cancelled
+            </div>
         </div>
     </div>
 
-    <table class="booking-table">
-        <thead>
-        <tr>
-            <th>Booking ID</th>
-            <th>Customer</th>
-            <th>Package</th>
-            <th>Booking Date</th>
-            <th>People</th>
-            <th>Total</th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <%
-            if (bookings != null && !bookings.isEmpty()) {
-                for (Booking bk : bookings) {
-                    String initials = bk.getFullName().substring(0, 1).toUpperCase();
-                    if (bk.getFullName().contains(" ")) {
-                        initials += bk.getFullName().substring(bk.getFullName().indexOf(" ") + 1, bk.getFullName().indexOf(" ") + 2).toUpperCase();
+<div class="booking-table-container" style="overflow-x: auto;">
+        <div style="min-width: 1024px;">
+            <table class="booking-table">
+                <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Type</th>
+                    <th>Customer</th>
+                    <th>Package</th>
+                    <th>Booking Date</th>
+                    <th>People</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%
+                    if (bookings != null && !bookings.isEmpty()) {
+                        for (Booking bk : bookings) {
+                            String initials = bk.getFullName().substring(0, 1).toUpperCase();
+                            if (bk.getFullName().contains(" ")) {
+                                initials += bk.getFullName().substring(bk.getFullName().indexOf(" ") + 1, bk.getFullName().indexOf(" ") + 2).toUpperCase();
+                            }
+                            String statusClass = "status-" + bk.getStatus().toLowerCase();
+                            String bookingType = bk.getClass().getSimpleName().replace("Booking", "");
+                %>
+                <tr>
+                    <td>#<%= bk.getBookingId() %></td>
+                    <td><span class="booking-type-badge"><i class="fas fa-<%= bookingType.equalsIgnoreCase("Group") ? "users" : "user" %>"></i> <%= bookingType %></span></td>
+                    <td>
+                        <div class="customer-cell">
+                            <div class="customer-info">
+                                <div class="customer-name"><%= bk.getFullName() %></div>
+                                <div class="customer-detail"><i class="fas fa-phone"></i> <%= bk.getPhoneNumber() %></div>
+                                <div class="customer-detail"><i class="fas fa-home"></i> <%= bk.getAddress() %></div>
+                                <div class="customer-detail"><i class="fas fa-envelope"></i> <%= bk.getEmail() %></div>
+                                <% if (bk.getSpecialRequirements() != null && !bk.getSpecialRequirements().trim().isEmpty()) { %>
+                                <div class="customer-allergy"><i class="fas fa-exclamation-triangle"></i> <%= bk.getSpecialRequirements() %></div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </td>
+                    <td><%= bk.getPackageId() %></td>
+                    <td><%= bk.getBookingDate() %></td>
+                    <td><%= bk.getNumberOfPeople() %></td>
+                    <td class="price">$<%= String.format("%.2f", bk.getTotalPrice()) %></td>
+                    <td>
+                    <span class="status <%= statusClass %>">
+                        <i class="fas fa-<%= bk.getStatus().equalsIgnoreCase("confirmed") ? "check-circle" : bk.getStatus().equalsIgnoreCase("pending") ? "clock" : "times-circle" %> status-icon"></i>
+                        <%= bk.getStatus() %>
+                    </span>
+                    </td>
+                    <td>
+                        <div class="action-btns">
+                            <form action="<%= request.getContextPath() %>/BookingUpdateServlet" method="get" style="display:inline;">
+                                <input type="hidden" name="bookingId" value="<%= bk.getBookingId() %>"/>
+                                <button type="submit" class="action-btn edit-btn">
+                                    <i class="fas fa-pencil-alt"></i> Edit
+                                </button>
+                            </form>
+                            <form action="<%= request.getContextPath() %>/BookingDeleteServlet" method="post" onsubmit="return confirm('Are you sure you want to delete this booking?');" style="display:inline;">
+                                <input type="hidden" name="bookingId" value="<%= bk.getBookingId() %>"/>
+                                <button type="submit" class="action-btn delete-btn">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                <%
                     }
-                    String statusClass = "status-" + bk.getStatus().toLowerCase();
-        %>
-        <tr>
-            <td>#<%= bk.getBookingId() %></td>
-            <td>
-                <div class="customer-cell">
-                    <div class="customer-avatar"><%= initials %></div>
-                    <div class="customer-info">
-                        <div class="customer-name"><%= bk.getFullName() %></div>
-                        <div class="customer-phone"><i class="fas fa-phone"></i> <%= bk.getPhoneNumber() %></div>
-                        <div class="customer-address"><i class="fas fa-home"></i> <%= bk.getAddress() %></div>
-                        <div class="customer-email"><i class="fas fa-envelope"></i> <%= bk.getEmail() %></div>
-                        <% if (bk.getSpecialRequirements() != null && !bk.getSpecialRequirements().trim().isEmpty()) { %>
-                        <div class="customer-allergy"><i class="fas fa-exclamation-triangle"></i> <%= bk.getSpecialRequirements() %></div>
-                        <% } %>
-                    </div>
-                </div>
-            </td>
-            <td><%= bk.getPackageId() %></td>
-            <td><%= bk.getBookingDate() %></td>
-            <td><%= bk.getNumberOfPeople() %></td>
-            <td>Rs.<%= bk.getTotalPrice() %></td>
-            <td><span class="status <%= statusClass %>"><%= bk.getStatus() %></span></td>
-            <td>
-                <form action="<%= request.getContextPath() %>/BookingUpdateServlet" method="get" style="display: inline;">
-                    <input type="hidden" name="bookingId" value="<%= bk.getBookingId() %>"/>
-                    <button type="submit" class="action-btn edit-btn">Edit</button>
-                </form>
-                <form action="<%= request.getContextPath() %>/BookingDeleteServlet" method="post"
-                      onsubmit="return confirm('Delete this booking?');" style="display: inline;">
-                    <input type="hidden" name="bookingId" value="<%= bk.getBookingId() %>"/>
-                    <button type="submit" class="action-btn delete-btn">Delete</button>
-                </form>
-            </td>
-        </tr>
-        <%
-            }
-        } else {
-        %>
-        <tr>
-            <td colspan="8" style="text-align: center; padding: 30px; color: #95a5a6;">
-                No bookings found
-            </td>
-        </tr>
-        <%
-            }
-        %>
-        </tbody>
-    </table>
+                } else {
+                %>
+                <tr>
+                    <td colspan="9" class="empty-state">
+                        <div class="empty-icon">
+                            <i class="far fa-calendar-times"></i>
+                        </div>
+                        <div class="empty-text">No bookings found</div>
+                        <a href="<%= request.getContextPath() %>/PackageListServlet" class="new-booking-btn">
+                            <i class="fas fa-plus"></i> Create New Booking
+                        </a>
+                    </td>
+                </tr>
+                <%
+                    }
+                %>
+                </tbody>
+            </table>
+        </div>
 </div>
+
 </body>
 </html>

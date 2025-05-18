@@ -6,8 +6,8 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.util.*;
 
-@WebServlet("/PackageListServlet")
-public class PackageListServlet extends HttpServlet {
+@WebServlet("/UserBookingFormServlet")
+public class UserBookingFormServlet extends HttpServlet {
     private static final String PACKAGE_FILE =
             "C:\\Users\\ASUS\\OneDrive\\Desktop\\Tourism-Package-Customization-Platform\\it24100548_BookingComponent\\BookingComponent\\src\\main\\resources\\packages.txt";
 
@@ -26,7 +26,7 @@ public class PackageListServlet extends HttpServlet {
             }
         }
 
-        // build <option> HTML
+        // Build HTML <option> elements
         StringBuilder options = new StringBuilder();
         for (String[] pkg : packageList) {
             options.append("<option value=\"")
@@ -39,6 +39,6 @@ public class PackageListServlet extends HttpServlet {
         }
 
         request.setAttribute("packageOptions", options.toString());
-        request.getRequestDispatcher("/jsp/BookingForm.jsp").forward(request, response);
+        request.getRequestDispatcher("/jsp/userbookingform.jsp").forward(request, response);
     }
 }
