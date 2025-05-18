@@ -75,7 +75,7 @@
         if (success != null && success) {
     %>
     <h2>Booking <%= request.getAttribute("fullName") != null ? "Updated" : "Successfull" %>!</h2>
-    <p>Total Price: <strong>$ <%= String.format("%.2f", request.getAttribute("newTotalPrice")) %></strong></p>
+    <p>Total Price: <strong>Rs.<%= String.format("%.2f", request.getAttribute("newTotalPrice")) %></strong></p>
     <%
     } else {
     %>
