@@ -93,4 +93,26 @@ public class PaymentService {
         }
         return false;
     }
+
+    // Get payments by customer mobile number
+    public List<Payment> getPaymentsByMobileNumber(String mobileNumber) throws IOException {
+        return getAllPayments().stream()
+                .filter(p -> p.getMobileNumber().equals(mobileNumber))
+                .collect(Collectors.toList());
+    }
+
+    // Generate unique payment number
+    private String generatePaymentNumber() throws IOException {
+        LocalDateTime now = LocalDateTime.now();
+        String dateStr = now.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+        return "PAY" + dateStr;
+    }
+
+    // Save all payments to file
+    private void savePayments(List<Payment> payments) throws IOException {
+        List<String> lines = payments.stream()
+                .map(Payment::toFileString)
+                .collect(Collectors.toList());
+        Files.write(Paths.get(FILE_PATH), lines, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+    }
 }
