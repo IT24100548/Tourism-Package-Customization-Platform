@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class PaymentService {
 
-    private static final String FILE_PATH = "C:\\Users\\USER\\Desktop\\zp\\payment_system\\src\\main\\resources\\payments.txt";
+    private static final String FILE_PATH = "E:\\zp\\payment_system\\src\\main\\resources\\payments.txt";
 
     public PaymentService() {
         // Create directory if it doesn't exist
@@ -48,7 +48,8 @@ public class PaymentService {
         }
         return payments;
     }
-      // Get payment by payment number
+
+    // Get payment by payment number
     public Payment getPaymentByNumber(String paymentNumber) throws IOException {
         return getAllPayments().stream()
                 .filter(p -> p.getPaymentNumber().equals(paymentNumber))
