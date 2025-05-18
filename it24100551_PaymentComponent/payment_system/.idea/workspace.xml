@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="payment-system:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a7cd074-17c9-4dac-b070-c5a7d44b59ea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="7b50262e-e4f5-4ea3-a43a-8289532a08f1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tourism/util/PaymentNotificationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tourism/util/PaymentNotificationUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +28,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/IT24100548/Tourism-Package-Customization-Platform.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/IT24100551/payment_system.git&quot;,
     &quot;accountId&quot;: &quot;f6392f97-741f-4117-ad98-02368e9456c4&quot;
   }
 }</component>
@@ -35,52 +40,53 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2xDdFdlAVbC0oesaCS5pBJixAXB" />
+  <component name="ProjectId" id="2wnVz9bdMEXymxi45c9TePkCu8O" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Tomcat Server.Tomcat 9.0.104.executor": "Run",
-    "git-widget-placeholder": "#2 on it24100551__PaymentComponent",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/USER/Desktop/Tourism-Package-Customization-Platform/it24100551_PaymentComponent",
+    "last_opened_file_path": "C:/Users/USER/Desktop/zp/payment_system",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "com.poratu.idea.plugins.tomcat.setting.TomcatServersConfigurable",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\USER\Desktop\Tourism-Package-Customization-Platform\it24100551_PaymentComponent" />
-    </key>
-  </component>
   <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
     <configuration name="Tomcat 9.0.104" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.104" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <file path="$PROJECT_DIR$/it24100551_PaymentComponent">
+        <artifact name="payment-system:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/it24100551_PaymentComponent" />
+            <option name="CONTEXT_PATH" value="/payment_system_war_exploded" />
           </settings>
-        </file>
+        </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="e92c1951-366f-41bf-8041-f3fa0ebffc5b" />
+        <option name="BASE_DIRECTORY_NAME" value="012e3f24-2961-4577-af63-03ac51a2ab64" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -88,7 +94,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="10299" />
+        <option name="DEBUG_PORT" value="61083" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -152,42 +158,45 @@
       </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="payment_system:war" />
+          <artifact name="payment-system:war exploded" />
+        </option>
       </method>
     </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4a7cd074-17c9-4dac-b070-c5a7d44b59ea" name="Changes" comment="" />
-      <created>1747476475439</created>
+      <changelist id="7b50262e-e4f5-4ea3-a43a-8289532a08f1" name="Changes" comment="" />
+      <created>1746677588000</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1747476475439</updated>
-      <workItem from="1747476476587" duration="4155000" />
-      <workItem from="1747538773952" duration="1183000" />
+      <updated>1746677588000</updated>
+      <workItem from="1746677589076" duration="2780000" />
+      <workItem from="1746723771713" duration="9805000" />
+      <workItem from="1746790414140" duration="582000" />
+      <workItem from="1746883174256" duration="3133000" />
+      <workItem from="1747281433663" duration="5931000" />
+      <workItem from="1747322335853" duration="3881000" />
+      <workItem from="1747364909661" duration="581000" />
+      <workItem from="1747370837080" duration="11801000" />
+      <workItem from="1747452560592" duration="9277000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/payment/form.jsp</url>
+          <line>102</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
