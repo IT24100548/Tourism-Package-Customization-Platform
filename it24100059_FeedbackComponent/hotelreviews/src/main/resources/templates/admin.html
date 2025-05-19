@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+<div class="container">
+  <h1>Admin Review Management</h1>
+  <table class="reviews-table">
+    <tr>
+      <th>User Name</th>
+      <th>Tour Name</th>
+      <th>Review Text</th>
+      <th>Rating</th>
+      <th>Actions</th>
+    </tr>
+    <tr th:each="review, index : ${reviews}">
+      <td th:text="${review.userName}"></td>
+      <td th:text="${review.tourName}"></td>
+      <td th:text="${review.reviewText}"></td>
+      <td th:text="${review.rating}"></td>
+      <td>
+        <a th:href="@{/reviews/update/{index}(index=${index.index})}" class="btn secondary">Update</a>
+        <a th:href="@{/reviews/delete/{index}(index=${index.index})}" class="btn danger" onclick="return confirm('Are you sure?');">Delete</a>
+        <a th:href="@{/reviews/approve/{index}(index=${index.index})}" class="btn approve">Approve</a>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
