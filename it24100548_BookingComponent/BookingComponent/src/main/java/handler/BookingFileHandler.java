@@ -11,7 +11,7 @@ public class BookingFileHandler {
     // Add a new booking (append to file)
     public static void addBooking(Booking booking) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
-            writer.write(booking.toString()); // ✅ Includes address + totalPrice
+            writer.write(booking.toString());
             writer.newLine();
         } catch (IOException e) {
             e.printStackTrace();
@@ -28,7 +28,7 @@ public class BookingFileHandler {
                 if (booking != null) {
                     bookings.add(booking);
                 } else {
-                    System.err.println("⚠️ Skipped invalid booking record: " + line);
+                    System.err.println("Skipped invalid booking record: " + line);
                 }
             }
         } catch (IOException e) {
@@ -43,7 +43,7 @@ public class BookingFileHandler {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (Booking booking : bookings) {
                 if (booking.getBookingId().equals(updatedBooking.getBookingId())) {
-                    writer.write(updatedBooking.toString()); // ✅ Writes updated address + totalPrice
+                    writer.write(updatedBooking.toString()); // Writes updated address + totalPrice
                 } else {
                     writer.write(booking.toString());
                 }
