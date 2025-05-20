@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Reviews</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Review Table */
+        .reviews-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .reviews-table th, .reviews-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .reviews-table th {
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+        }
+
+        /* Create Review Button */
+        .create-review-btn {
+            background-color: #007BFF;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            width: 200px;
+            text-align: center;
+            margin: 20px auto;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .create-review-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Tour Reviews</h1>
+
+    <!-- ✅ Create Review Button -->
+    <a href="/reviews/addReview" class="create-review-btn">Create Review</a>
+
+    <table class="reviews-table">
+        <tr>
+            <th>User Name</th>
+            <th>Tour Name</th>
+            <th>Review Text</th>
+            <th>Rating</th>
+        </tr>
+        <tr th:each="review : ${reviews}">
+            <td th:text="${review.userName}"></td>
+            <td th:text="${review.tourName}"></td>
+            <td th:text="${review.reviewText}"></td>
+            <td th:text="${review.rating}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
