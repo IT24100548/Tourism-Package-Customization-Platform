@@ -1,0 +1,2 @@
+TP001,BeachTrip,Goa,5000.0,Relaxing beach vacation,Skydiving,Adventure
+TP002,ResortStay,Kerala,7000.0,Luxury resort experience,5-Star,Leisure

@@ -1,0 +1,5 @@
+33,Galle Fort,Galle,500.0,gaj heh,3-star,Leisure
+P001,Trekking Adventure,Nepal,250.0,Hiking trip,Hiking,Adventure
+P002,Beach Retreat,Maldives,600.0,5-star beach resort,Resort,Leisure
+P003,Desert Safari,Dubai,450.0,Exciting desert adventure,Jeep Ride,Adventure
+P004,Mountain Lodge,Sri Lanka,300.0,Chill mountain view stay,Boutique,Leisure
