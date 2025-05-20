@@ -1,2 +1,0 @@
-ADMIN,akila,1234,akila@gmail.com
-TRAVELER,shihar,1234,shihar540@gmail.com
