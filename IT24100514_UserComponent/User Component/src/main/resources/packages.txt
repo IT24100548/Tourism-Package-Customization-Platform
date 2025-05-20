@@ -1,0 +1,3 @@
+LEISURE,P004,Discover Sri Lanka,Sri Lanka,1000.0,"come visit Sri Lanka!",villa
+ADVENTURE,P007,vgvggh,jvh,600.0,hjg,hv
+ADVENTURE,P009,Discover India,India,750.0,"come visit India",hiking
