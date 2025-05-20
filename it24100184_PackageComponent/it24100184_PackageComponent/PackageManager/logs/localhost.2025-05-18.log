@@ -1,0 +1,966 @@
+18-May-2025 22:00:59.692 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [19] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+16:                 <div class="d-flex justify-content-between align-items-center mb-3">
+17:                     <div class="sort-buttons btn-group">
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+
+
+An error occurred at line: [21] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+
+
+An error occurred at line: [23] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+
+
+An error occurred at line: [25] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+27:                     <div>
+28:                         <a href="${pageContext.request.contextPath}/views/AddPackage.jsp" class="btn btn-success">Add New Package</a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:621)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:401)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:285)
+		at com.tourism.Servlet.ViewPackageServlet.doGet(ViewPackageServlet.java:42)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1570)
+18-May-2025 22:00:59.692 SEVERE [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [com.tourism.Servlet.ViewPackageServlet] in context with path [/PackageManager] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [19] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+16:                 <div class="d-flex justify-content-between align-items-center mb-3">
+17:                     <div class="sort-buttons btn-group">
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+
+
+An error occurred at line: [21] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+
+
+An error occurred at line: [23] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+
+
+An error occurred at line: [25] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+27:                     <div>
+28:                         <a href="${pageContext.request.contextPath}/views/AddPackage.jsp" class="btn btn-success">Add New Package</a>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [19] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+16:                 <div class="d-flex justify-content-between align-items-center mb-3">
+17:                     <div class="sort-buttons btn-group">
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+
+
+An error occurred at line: [21] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+
+
+An error occurred at line: [23] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+
+
+An error occurred at line: [25] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+27:                     <div>
+28:                         <a href="${pageContext.request.contextPath}/views/AddPackage.jsp" class="btn btn-success">Add New Package</a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:621)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:401)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:285)
+		at com.tourism.Servlet.ViewPackageServlet.doGet(ViewPackageServlet.java:42)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1570)
+18-May-2025 22:01:20.434 SEVERE [http-nio-8080-exec-7] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [19] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+16:                 <div class="d-flex justify-content-between align-items-center mb-3">
+17:                     <div class="sort-buttons btn-group">
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+
+
+An error occurred at line: [21] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+
+
+An error occurred at line: [23] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+
+
+An error occurred at line: [25] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+27:                     <div>
+28:                         <a href="${pageContext.request.contextPath}/views/AddPackage.jsp" class="btn btn-success">Add New Package</a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:621)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:401)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:285)
+		at com.tourism.Servlet.ViewPackageServlet.doGet(ViewPackageServlet.java:42)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1570)
+18-May-2025 22:01:20.435 SEVERE [http-nio-8080-exec-7] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [com.tourism.Servlet.ViewPackageServlet] in context with path [/PackageManager] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [19] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+16:                 <div class="d-flex justify-content-between align-items-center mb-3">
+17:                     <div class="sort-buttons btn-group">
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+
+
+An error occurred at line: [21] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+
+
+An error occurred at line: [23] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+
+
+An error occurred at line: [25] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+27:                     <div>
+28:                         <a href="${pageContext.request.contextPath}/views/AddPackage.jsp" class="btn btn-success">Add New Package</a>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [19] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+16:                 <div class="d-flex justify-content-between align-items-center mb-3">
+17:                     <div class="sort-buttons btn-group">
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+
+
+An error occurred at line: [21] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+
+
+An error occurred at line: [23] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+
+
+An error occurred at line: [25] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+27:                     <div>
+28:                         <a href="${pageContext.request.contextPath}/views/AddPackage.jsp" class="btn btn-success">Add New Package</a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:621)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:401)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:285)
+		at com.tourism.Servlet.ViewPackageServlet.doGet(ViewPackageServlet.java:42)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1570)
+18-May-2025 22:01:21.824 SEVERE [http-nio-8080-exec-8] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	java.lang.ClassNotFoundException: org.apache.jsp.views.ViewPackage_jsp
+		at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:119)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:56)
+		at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:150)
+		at org.apache.jasper.servlet.JspServletWrapper.getServlet(JspServletWrapper.java:174)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:393)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:621)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:401)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:285)
+		at com.tourism.Servlet.ViewPackageServlet.doGet(ViewPackageServlet.java:42)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1570)
+18-May-2025 22:01:21.824 SEVERE [http-nio-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [com.tourism.Servlet.ViewPackageServlet] in context with path [/PackageManager] threw exception [org.apache.jasper.JasperException: java.lang.ClassNotFoundException: org.apache.jsp.views.ViewPackage_jsp] with root cause
+	java.lang.ClassNotFoundException: org.apache.jsp.views.ViewPackage_jsp
+		at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:119)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:56)
+		at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:150)
+		at org.apache.jasper.servlet.JspServletWrapper.getServlet(JspServletWrapper.java:174)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:393)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:621)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:401)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:285)
+		at com.tourism.Servlet.ViewPackageServlet.doGet(ViewPackageServlet.java:42)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1570)
+18-May-2025 22:01:22.441 SEVERE [http-nio-8080-exec-9] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	java.lang.ClassNotFoundException: org.apache.jsp.views.ViewPackage_jsp
+		at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:119)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:56)
+		at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:150)
+		at org.apache.jasper.servlet.JspServletWrapper.getServlet(JspServletWrapper.java:174)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:393)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:621)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:401)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:285)
+		at com.tourism.Servlet.ViewPackageServlet.doGet(ViewPackageServlet.java:42)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1570)
+18-May-2025 22:01:22.441 SEVERE [http-nio-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [com.tourism.Servlet.ViewPackageServlet] in context with path [/PackageManager] threw exception [org.apache.jasper.JasperException: java.lang.ClassNotFoundException: org.apache.jsp.views.ViewPackage_jsp] with root cause
+	java.lang.ClassNotFoundException: org.apache.jsp.views.ViewPackage_jsp
+		at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:119)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:56)
+		at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:150)
+		at org.apache.jasper.servlet.JspServletWrapper.getServlet(JspServletWrapper.java:174)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:393)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:621)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:401)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:285)
+		at com.tourism.Servlet.ViewPackageServlet.doGet(ViewPackageServlet.java:42)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1570)
+18-May-2025 22:01:22.817 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	java.lang.ClassNotFoundException: org.apache.jsp.views.ViewPackage_jsp
+		at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:119)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:56)
+		at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:150)
+		at org.apache.jasper.servlet.JspServletWrapper.getServlet(JspServletWrapper.java:174)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:393)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:621)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:401)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:285)
+		at com.tourism.Servlet.ViewPackageServlet.doGet(ViewPackageServlet.java:42)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1570)
+18-May-2025 22:01:22.817 SEVERE [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [com.tourism.Servlet.ViewPackageServlet] in context with path [/PackageManager] threw exception [org.apache.jasper.JasperException: java.lang.ClassNotFoundException: org.apache.jsp.views.ViewPackage_jsp] with root cause
+	java.lang.ClassNotFoundException: org.apache.jsp.views.ViewPackage_jsp
+		at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:119)
+		at org.apache.jasper.servlet.JasperLoader.loadClass(JasperLoader.java:56)
+		at org.apache.catalina.core.DefaultInstanceManager.newInstance(DefaultInstanceManager.java:150)
+		at org.apache.jasper.servlet.JspServletWrapper.getServlet(JspServletWrapper.java:174)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:393)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:621)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:401)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:285)
+		at com.tourism.Servlet.ViewPackageServlet.doGet(ViewPackageServlet.java:42)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1570)
+18-May-2025 22:09:24.751 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.ApplicationDispatcher.invoke Servlet.service() for servlet [jsp] threw exception
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [19] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+16:                 <div class="d-flex justify-content-between align-items-center mb-3">
+17:                     <div class="sort-buttons btn-group">
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+
+
+An error occurred at line: [21] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+
+
+An error occurred at line: [23] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+
+
+An error occurred at line: [25] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+27:                     <div>
+28:                         <a href="${pageContext.request.contextPath}/views/AddPackage.jsp" class="btn btn-success">Add New Package</a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:621)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:401)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:285)
+		at com.tourism.Servlet.ViewPackageServlet.doGet(ViewPackageServlet.java:42)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1570)
+18-May-2025 22:09:24.751 SEVERE [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [com.tourism.Servlet.ViewPackageServlet] in context with path [/PackageManager] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [19] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+16:                 <div class="d-flex justify-content-between align-items-center mb-3">
+17:                     <div class="sort-buttons btn-group">
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+
+
+An error occurred at line: [21] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+
+
+An error occurred at line: [23] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+
+
+An error occurred at line: [25] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+27:                     <div>
+28:                         <a href="${pageContext.request.contextPath}/views/AddPackage.jsp" class="btn btn-success">Add New Package</a>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [19] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+16:                 <div class="d-flex justify-content-between align-items-center mb-3">
+17:                     <div class="sort-buttons btn-group">
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+
+
+An error occurred at line: [21] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+18:                         <a href="${pageContext.request.contextPath}/viewPackages"
+19:                            class="btn <%= "id".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Default Order (by ID)</a>
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+
+
+An error occurred at line: [23] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+20:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=price"
+21:                            class="btn <%= "price".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Price</a>
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+
+
+An error occurred at line: [25] in the jsp file: [/views/ViewPackage.jsp]
+currentSort cannot be resolved to a variable
+22:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=name"
+23:                            class="btn <%= "name".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Name</a>
+24:                         <a href="${pageContext.request.contextPath}/viewPackages?sort=destination"
+25:                            class="btn <%= "destination".equals(currentSort) ? "btn-primary" : "btn-outline-primary" %>">Sort by Destination</a>
+26:                     </div>
+27:                     <div>
+28:                         <a href="${pageContext.request.contextPath}/views/AddPackage.jsp" class="btn btn-success">Add New Package</a>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:621)
+		at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:401)
+		at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:340)
+		at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:285)
+		at com.tourism.Servlet.ViewPackageServlet.doGet(ViewPackageServlet.java:42)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:1570)
