@@ -260,6 +260,54 @@
             return true;
         }
 
+        // Add input event listeners for real-time validation
+        document.getElementById('expiryDate').addEventListener('input', function(e) {
+            // Auto-insert slash after 2 digits
+            if (this.value.length === 2 && !this.value.includes('/')) {
+                this.value = this.value + '/';
+            }
+            validateExpiryDate(this);
+        });
+
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            formatCardNumber(this);
+        });
+
+        document.getElementById('cvv').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').substring(0, 3);
+        });
+
+        document.getElementById('mobileNumber').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').substring(0, 10);
+        });
+
+        document.getElementById('customerName').addEventListener('input', function(e) {
+            // Prevent consecutive spaces
+            this.value = this.value.replace(/  +/g, ' ');
+            validateCustomerName(this);
+        });
+
+        // Prevent paste in customer name field
+        document.getElementById('customerName').addEventListener('paste', function(e) {
+            e.preventDefault();
+        });
+
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                // Before validation, remove spaces from card number
+                const cardNumberInput = form.querySelector('#cardNumber');
+                cardNumberInput.value = cardNumberInput.value.replace(/\s/g, '');
+
+                if (!form.checkValidity() ||
+                    !validateExpiryDate(form.querySelector('#expiryDate')) ||
+                    !validateCustomerName(form.querySelector('#customerName'))) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
 </script>
 </body>
 </html>
