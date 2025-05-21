@@ -215,7 +215,7 @@
                 </div>
                 <div class="form-field">
                     <label for="address">Address</label>
-                    <input type="text" id="address" name="address" value="<%= booking.getAddress() %>" required placeholder="123 Main Street">
+                    <input type="text" id="address" name="address" value="<%= booking.getAddress() %>" required placeholder="123 Main Street, Colombo">
                 </div>
             </div>
 
