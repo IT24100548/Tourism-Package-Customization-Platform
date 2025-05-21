@@ -1,6 +1,8 @@
 package model;
 
+// abstract class for all types of bookings
 public abstract class Booking {
+    // common fields shared by solo and group bookings
     protected String bookingId;
     protected String fullName;
     protected String phoneNumber;
@@ -14,6 +16,7 @@ public abstract class Booking {
     protected int numberOfPeople;
     protected double totalPrice;
 
+    // constructor to set all booking details
     public Booking(String bookingId, String fullName, String phoneNumber, String address,
                    String gender, String email, String packageId, String bookingDate,
                    String status, String specialRequirements, int numberOfPeople) {
@@ -26,14 +29,15 @@ public abstract class Booking {
         this.packageId = packageId;
         this.bookingDate = bookingDate;
         this.status = status;
+        // if specialRequirements is null, just set it to empty string
         this.specialRequirements = (specialRequirements == null ? "" : specialRequirements);
         this.numberOfPeople = numberOfPeople;
     }
 
-    // Abstract method to be overridden
+    // abstract because each booking type calculates price differently
     public abstract double calculateTotalPrice(double basePrice);
 
-    // Getters and Setters
+    // getter and setter methods for all fields
     public String getBookingId() { return bookingId; }
     public void setBookingId(String bookingId) { this.bookingId = bookingId; }
 
@@ -63,6 +67,7 @@ public abstract class Booking {
 
     public String getSpecialRequirements() { return specialRequirements; }
     public void setSpecialRequirements(String specialRequirements) {
+        // again, prevent null from going in
         this.specialRequirements = (specialRequirements == null ? "" : specialRequirements);
     }
 
@@ -72,11 +77,11 @@ public abstract class Booking {
     public double getTotalPrice() { return totalPrice; }
     public void setTotalPrice(double totalPrice) { this.totalPrice = totalPrice; }
 
-    // Serialize to string (first token is the class name)
+    // this converts the object into a string to save in a text file
     @Override
     public String toString() {
         return String.join("|",
-                this.getClass().getSimpleName(),  // SoloBooking or GroupBooking
+                this.getClass().getSimpleName(),  // saves class name like SoloBooking or GroupBooking
                 bookingId, fullName, phoneNumber, address, gender,
                 email, packageId, bookingDate, status,
                 specialRequirements,
@@ -85,16 +90,18 @@ public abstract class Booking {
         );
     }
 
-    // Deserialize from string (factory method)
+    // this reads a line from the file and turns it into a booking object
     public static Booking fromString(String line) {
-        String[] parts = line.split("\\|", -1);
+        String[] parts = line.split("\\|", -1); // keep empty fields too
         if (parts.length != 13) {
-            System.err.println("Invalid booking record (expected 13 fields): " + line);
+            // log error if line doesn't have correct number of fields
+            System.err.println("invalid booking record (expected 13 fields): " + line);
             return null;
         }
 
         String type = parts[0];
         try {
+            // parse all values from the line
             String bookingId = parts[1];
             String fullName = parts[2];
             String phoneNumber = parts[3];
@@ -108,6 +115,7 @@ public abstract class Booking {
             int numberOfPeople = Integer.parseInt(parts[11]);
             double totalPrice = Double.parseDouble(parts[12]);
 
+            // return the correct subclass based on type
             if (type.equals("SoloBooking")) {
                 return new SoloBooking(bookingId, fullName, phoneNumber, address, gender, email,
                         packageId, bookingDate, status, specialRequirements, totalPrice);
@@ -115,11 +123,13 @@ public abstract class Booking {
                 return new GroupBooking(bookingId, fullName, phoneNumber, address, gender, email,
                         packageId, bookingDate, status, specialRequirements, numberOfPeople, totalPrice);
             } else {
-                System.err.println("Unknown booking type: " + type);
+                // type not recognized
+                System.err.println("unknown booking type: " + type);
                 return null;
             }
 
         } catch (Exception e) {
+            // catch parsing errors
             e.printStackTrace();
             return null;
         }
