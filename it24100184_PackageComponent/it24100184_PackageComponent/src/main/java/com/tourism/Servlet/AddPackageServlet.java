@@ -28,10 +28,10 @@ public class AddPackageServlet extends HttpServlet {
         }
 
         if (pkg != null) {
-            String realPath = getServletContext().getRealPath("/WEB-INF/classes/packages.txt");
-            PackageBST bst = PackageDAO.loadPackages(realPath);
+            //String realPath = getServletContext().getRealPath("/WEB-INF/classes/packages.txt");
+            PackageBST bst = PackageDAO.loadPackages();
             bst.insert(pkg);
-            PackageDAO.savePackages(bst, realPath);
+            PackageDAO.savePackages(bst);
         }
 
         response.sendRedirect("views/AddPackage.jsp?success=true");

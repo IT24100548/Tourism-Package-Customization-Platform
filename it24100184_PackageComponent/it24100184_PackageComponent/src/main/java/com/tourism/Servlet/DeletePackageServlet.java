@@ -13,10 +13,10 @@ public class DeletePackageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
 
-        String realPath = getServletContext().getRealPath("/WEB-INF/classes/packages.txt");
-        PackageBST bst = PackageDAO.loadPackages(realPath);
+        //String realPath = getServletContext().getRealPath("/WEB-INF/classes/packages.txt");
+        PackageBST bst = PackageDAO.loadPackages();
         bst.delete(id);
-        PackageDAO.savePackages(bst, realPath);
+        PackageDAO.savePackages(bst);
 
         response.sendRedirect("viewPackages");
     }
