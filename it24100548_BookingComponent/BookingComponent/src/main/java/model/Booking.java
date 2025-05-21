@@ -34,10 +34,9 @@ public abstract class Booking {
         this.numberOfPeople = numberOfPeople;
     }
 
-    // abstract because each booking type calculates price differently
     public abstract double calculateTotalPrice(double basePrice);
 
-    // getter and setter methods for all fields
+    // getters and setters
     public String getBookingId() { return bookingId; }
     public void setBookingId(String bookingId) { this.bookingId = bookingId; }
 
@@ -67,7 +66,6 @@ public abstract class Booking {
 
     public String getSpecialRequirements() { return specialRequirements; }
     public void setSpecialRequirements(String specialRequirements) {
-        // again, prevent null from going in
         this.specialRequirements = (specialRequirements == null ? "" : specialRequirements);
     }
 
@@ -77,7 +75,7 @@ public abstract class Booking {
     public double getTotalPrice() { return totalPrice; }
     public void setTotalPrice(double totalPrice) { this.totalPrice = totalPrice; }
 
-    // this converts the object into a string to save in a text file
+    // objects into the string text file
     @Override
     public String toString() {
         return String.join("|",
@@ -90,18 +88,16 @@ public abstract class Booking {
         );
     }
 
-    // this reads a line from the file and turns it into a booking object
+    // line to a booking object
     public static Booking fromString(String line) {
-        String[] parts = line.split("\\|", -1); // keep empty fields too
+        String[] parts = line.split("\\|", -1);
         if (parts.length != 13) {
-            // log error if line doesn't have correct number of fields
             System.err.println("invalid booking record (expected 13 fields): " + line);
             return null;
         }
 
         String type = parts[0];
         try {
-            // parse all values from the line
             String bookingId = parts[1];
             String fullName = parts[2];
             String phoneNumber = parts[3];
@@ -115,7 +111,7 @@ public abstract class Booking {
             int numberOfPeople = Integer.parseInt(parts[11]);
             double totalPrice = Double.parseDouble(parts[12]);
 
-            // return the correct subclass based on type
+            // return to the correct subclass
             if (type.equals("SoloBooking")) {
                 return new SoloBooking(bookingId, fullName, phoneNumber, address, gender, email,
                         packageId, bookingDate, status, specialRequirements, totalPrice);
@@ -123,13 +119,11 @@ public abstract class Booking {
                 return new GroupBooking(bookingId, fullName, phoneNumber, address, gender, email,
                         packageId, bookingDate, status, specialRequirements, numberOfPeople, totalPrice);
             } else {
-                // type not recognized
                 System.err.println("unknown booking type: " + type);
                 return null;
             }
 
         } catch (Exception e) {
-            // catch parsing errors
             e.printStackTrace();
             return null;
         }
