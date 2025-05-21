@@ -20,7 +20,7 @@ public class BookingHistoryServlet extends HttpServlet {
         List<Booking> bookings = BookingFileHandler.getAllBookings();
         request.setAttribute("bookingsList", bookings);
 
-        // ✅ Forward to the JSP page to render the table
+        // all bookings forward to the jsp
         request.getRequestDispatcher("/jsp/BookingHistory.jsp").forward(request, response);
     }
 }

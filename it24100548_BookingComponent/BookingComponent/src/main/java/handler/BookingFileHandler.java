@@ -6,44 +6,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookingFileHandler {
+    // booking file path
     private static final String FILE_NAME = "C:\\Users\\ASUS\\OneDrive\\Desktop\\Tourism-Package-Customization-Platform\\it24100548_BookingComponent\\BookingComponent\\src\\main\\resources\\bookings.txt";
 
-    // Add a new booking (append to file)
+    // method to add a new booking
     public static void addBooking(Booking booking) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
-            writer.write(booking.toString());
-            writer.newLine();
+            writer.write(booking.toString()); // convert object to string
+            writer.newLine(); // add new line
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    // Get all bookings (read from file)
+    // read and return all bookings from file
     public static List<Booking> getAllBookings() {
         List<Booking> bookings = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                Booking booking = Booking.fromString(line);
+                Booking booking = Booking.fromString(line); // convert line to object
                 if (booking != null) {
                     bookings.add(booking);
                 } else {
-                    System.err.println("Skipped invalid booking record: " + line);
+                    System.err.println("skipped invalid booking record: " + line);
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return bookings;
+        return bookings; // return the list bookings
     }
 
-    // Update a booking (by bookingId)
+    // method to update booking
     public static void updateBooking(Booking updatedBooking) {
-        List<Booking> bookings = getAllBookings();
+        List<Booking> bookings = getAllBookings(); // get current list
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (Booking booking : bookings) {
                 if (booking.getBookingId().equals(updatedBooking.getBookingId())) {
-                    writer.write(updatedBooking.toString()); // Writes updated address + totalPrice
+                    writer.write(updatedBooking.toString());
                 } else {
                     writer.write(booking.toString());
                 }
@@ -54,7 +55,6 @@ public class BookingFileHandler {
         }
     }
 
-    // Delete a booking (by bookingId)
     public static void deleteBooking(String bookingId) {
         List<Booking> bookings = getAllBookings();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
@@ -69,13 +69,13 @@ public class BookingFileHandler {
         }
     }
 
-    // Generate a new unique Booking ID
+    // method to generate booking number
     public static String generateBookingId() {
-        List<Booking> bookings = getAllBookings(); // Load all bookings
-        int maxId = 1000; // Start from 1000
+        List<Booking> bookings = getAllBookings();
+        int maxId = 1000;
 
         for (Booking b : bookings) {
-            if (b == null) continue; // Safety: skip nulls
+            if (b == null) continue;
             String id = b.getBookingId();
             if (id.startsWith("BKG")) {
                 try {
@@ -84,7 +84,7 @@ public class BookingFileHandler {
                         maxId = num;
                     }
                 } catch (NumberFormatException e) {
-                    // Skip if ID isn't in expected format
+
                 }
             }
         }

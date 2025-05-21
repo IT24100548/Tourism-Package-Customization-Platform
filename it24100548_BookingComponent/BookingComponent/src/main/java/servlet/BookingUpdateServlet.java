@@ -13,6 +13,7 @@ import java.util.*;
 
 @WebServlet("/BookingUpdateServlet")
 public class BookingUpdateServlet extends HttpServlet {
+    //package file
     private static final String PACKAGE_FILE =
             "C:\\Users\\ASUS\\OneDrive\\Desktop\\Tourism-Package-Customization-Platform\\it24100548_BookingComponent\\BookingComponent\\src\\main\\resources\\packages.txt";
 
@@ -32,7 +33,7 @@ public class BookingUpdateServlet extends HttpServlet {
             return;
         }
 
-        // Build package <option>s
+        // select packages
         StringBuilder opts = new StringBuilder();
         try (BufferedReader rd = new BufferedReader(new FileReader(PACKAGE_FILE))) {
             String ln;
@@ -74,7 +75,7 @@ public class BookingUpdateServlet extends HttpServlet {
         int numberOfPeople = Integer.parseInt(request.getParameter("numberOfPeople"));
         String bookingType = request.getParameter("bookingType");
 
-        // Look up price per unit
+        // packages price
         double pricePerUnit = 0;
         try (BufferedReader rd = new BufferedReader(new FileReader(PACKAGE_FILE))) {
             String ln;
@@ -87,7 +88,7 @@ public class BookingUpdateServlet extends HttpServlet {
             }
         }
 
-        // Create updated booking object based on type
+        // updated booking based on type
         Booking updatedBooking;
         if ("solo".equalsIgnoreCase(bookingType)) {
             updatedBooking = new SoloBooking(
@@ -101,14 +102,14 @@ public class BookingUpdateServlet extends HttpServlet {
             );
         }
 
-        // Recalculate total price
+        // recalculate total price
         double totalPrice = updatedBooking.calculateTotalPrice(pricePerUnit);
         updatedBooking.setTotalPrice(totalPrice);
 
-        // Replace booking in file
+        // replace booking in file
         BookingFileHandler.updateBooking(updatedBooking);
 
-        // Forward success response
+        // forward success response
         request.setAttribute("newTotalPrice", totalPrice);
         request.setAttribute("success", true);
         request.setAttribute("fullName", fullName);

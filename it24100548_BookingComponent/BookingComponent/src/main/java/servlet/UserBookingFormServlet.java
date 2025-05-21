@@ -8,9 +8,13 @@ import java.util.*;
 
 @WebServlet("/UserBookingFormServlet")
 public class UserBookingFormServlet extends HttpServlet {
+
+    //package file path
     private static final String PACKAGE_FILE =
             "C:\\Users\\ASUS\\OneDrive\\Desktop\\Tourism-Package-Customization-Platform\\it24100548_BookingComponent\\BookingComponent\\src\\main\\resources\\packages.txt";
 
+
+    //view
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -26,7 +30,7 @@ public class UserBookingFormServlet extends HttpServlet {
             }
         }
 
-        // Build HTML <option> elements
+        //package options
         StringBuilder options = new StringBuilder();
         for (String[] pkg : packageList) {
             options.append("<option value=\"")

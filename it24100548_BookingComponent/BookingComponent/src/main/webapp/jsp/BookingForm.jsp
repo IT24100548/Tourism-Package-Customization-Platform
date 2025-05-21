@@ -324,14 +324,14 @@
             <div class="form-grid">
                 <div class="form-field">
                     <label for="fullName">Full Name</label>
-                    <input type="text" id="fullName" name="fullName" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" placeholder="John Doe">
+                    <input type="text" id="fullName" name="fullName" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" placeholder="Your Name">
                     <div class="input-error">
                         <i class="fas fa-exclamation-circle"></i> Please enter a valid name
                     </div>
                 </div>
                 <div class="form-field">
                     <label for="phoneNumber">Phone Number</label>
-                    <input type="text" id="phoneNumber" name="phoneNumber" required pattern="^\+?[0-9\s]{7,15}$" title="Only numbers, spaces, and optional '+' at the start" placeholder="0712345678">
+                    <input type="text" id="phoneNumber" name="phoneNumber" required pattern="^\+?[0-9\s]{7,15}$" title="Only numbers, spaces, and optional '+' at the start" placeholder="0712175244">
                     <div class="input-error">
                         <i class="fas fa-exclamation-circle"></i> Please enter a valid phone number
                     </div>

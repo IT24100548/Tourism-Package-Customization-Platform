@@ -29,12 +29,12 @@ public class BookingServlet extends HttpServlet {
         String bookingType = request.getParameter("bookingType");  // NEW
         int numberOfPeople = Integer.parseInt(request.getParameter("numberOfPeople"));
 
-        // Generate ID & date
+        // generate ID & date
         String bookingId = BookingFileHandler.generateBookingId();
         String bookingDate = request.getParameter("bookingDate");
         String status = "Pending";
 
-        // Lookup price per unit
+        // lookup price per unit
         double pricePerUnit = 0;
         try (BufferedReader rd = new BufferedReader(new FileReader(PACKAGE_FILE))) {
             String ln;
@@ -47,7 +47,7 @@ public class BookingServlet extends HttpServlet {
             }
         }
 
-        // --- Create Booking object dynamically based on type ---
+        // create booking object dynamically based on type
         Booking booking;
         if ("solo".equalsIgnoreCase(bookingType)) {
             booking = new SoloBooking(

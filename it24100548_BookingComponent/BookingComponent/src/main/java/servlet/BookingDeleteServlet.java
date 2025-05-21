@@ -15,10 +15,10 @@ public class BookingDeleteServlet extends HttpServlet {
 
         String bookingId = request.getParameter("bookingId");
 
-        // Delete the booking
+        // delete booking
         BookingFileHandler.deleteBooking(bookingId);
 
-        // Forward to confirmation JSP
+        // forward to the jsp
         request.getRequestDispatcher("/jsp/bookingDeleted.jsp").forward(request, response);
     }
 }
