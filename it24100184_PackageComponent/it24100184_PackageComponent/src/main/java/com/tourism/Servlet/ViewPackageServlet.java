@@ -16,9 +16,9 @@ import java.util.List;
 @WebServlet("/viewPackages")
 public class ViewPackageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String realPath = getServletContext().getRealPath("/WEB-INF/classes/packages.txt");
+        //String realPath = getServletContext().getRealPath("/WEB-INF/classes/packages.txt");
 
-        PackageBST bst = PackageDAO.loadPackages(realPath);
+        PackageBST bst = PackageDAO.loadPackages();
         List<TravelPackage> packages = bst.inorderTraversal(); // Default sort by ID
 
         // Get the sort parameter

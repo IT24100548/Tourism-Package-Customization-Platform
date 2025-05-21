@@ -20,8 +20,8 @@ public class EditPackageServlet extends HttpServlet {
             return;
         }
 
-        String realPath = getServletContext().getRealPath("/WEB-INF/classes/packages.txt");
-        PackageBST bst = PackageDAO.loadPackages(realPath);
+        //String realPath = getServletContext().getRealPath("/WEB-INF/classes/packages.txt");
+        PackageBST bst = PackageDAO.loadPackages();
         TravelPackage pkg = bst.search(id);
 
         if (pkg != null) {
@@ -40,8 +40,8 @@ public class EditPackageServlet extends HttpServlet {
             return;
         }
 
-        String realPath = getServletContext().getRealPath("/WEB-INF/classes/packages.txt");
-        PackageBST bst = PackageDAO.loadPackages(realPath);
+        //String realPath = getServletContext().getRealPath("/WEB-INF/classes/packages.txt");
+        PackageBST bst = PackageDAO.loadPackages();
         bst.delete(id); // Remove old package
 
         // Insert new one with updated details
@@ -62,7 +62,7 @@ public class EditPackageServlet extends HttpServlet {
             }
 
             bst.insert(updated);
-            PackageDAO.savePackages(bst, realPath);
+            PackageDAO.savePackages(bst);
             response.sendRedirect("viewPackages");
         } catch (NumberFormatException e) {
             request.setAttribute("error", "Invalid price format.");
