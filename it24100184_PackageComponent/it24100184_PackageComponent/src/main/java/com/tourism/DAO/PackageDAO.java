@@ -4,17 +4,19 @@ import com.tourism.BST.PackageBST;
 import com.tourism.model.*;
 
 import java.io.*;
+import java.net.URL;
 import java.util.List;
 
 public class PackageDAO {
+    private static final String FILE_PATH = "packages.txt";
+
     // Load packages from file and populate BST
-    public static PackageBST loadPackages(String realPath) {
+    public static PackageBST loadPackages() {
         PackageBST bst = new PackageBST();
-        File file = new File(realPath);
 
-        System.out.println("[PackageDAO] File path: " + file.getAbsolutePath());
+        try (InputStream inputStream = PackageDAO.class.getClassLoader().getResourceAsStream(FILE_PATH);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",", -1);
@@ -44,7 +46,7 @@ public class PackageDAO {
                 }
             }
         } catch (IOException e) {
-            System.out.println("[PackageDAO] File not found or unreadable: " + realPath);
+            System.out.println("[PackageDAO] Error reading file: " + FILE_PATH);
             e.printStackTrace();
         }
 
@@ -52,17 +54,22 @@ public class PackageDAO {
     }
 
     // Save packages from BST back to file
-    public static void savePackages(PackageBST bst, String realPath) {
+    public static void savePackages(PackageBST bst) {
         List<TravelPackage> packageList = bst.inorderTraversal();
-        System.out.println("[PackageDAO] Saving " + packageList.size() + " packages to: " + realPath);
+        System.out.println("[PackageDAO] Saving " + packageList.size() + " packages");
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(realPath))) {
-            for (TravelPackage tp : packageList) {
-                writer.write(tp.toString());
-                writer.newLine();
+        try {
+            URL resourceUrl = PackageDAO.class.getClassLoader().getResource(FILE_PATH);
+            File file = new File(resourceUrl.toURI());
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                for (TravelPackage tp : packageList) {
+                    writer.write(tp.toString());
+                    writer.newLine();
+                }
             }
-        } catch (IOException e) {
-            System.out.println("[PackageDAO] Error writing to file: " + realPath);
+        } catch (Exception e) {
+            System.out.println("[PackageDAO] Error writing to file: " + FILE_PATH);
             e.printStackTrace();
         }
     }
