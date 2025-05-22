@@ -1,0 +1,5 @@
+SoloBooking|BKG1001|Sarasitha Galagama|0712175244|752/1/23, Rukmale Road, Kottawa|Male|sarasithagalagama@gmail.com|Beach Escape|2025-05-22|Pending||1|500.0
+SoloBooking|BKG1002|Nadeesha Perera|0771234567|45/A Hill Street, Nugegoda|Female|nadeesha.perera@email.com|Adventure Trek|2025-05-20|Confirmed||1|400.0
+GroupBooking|BKG1003|Kavindu Jayasuriya|0789876543|112 Lotus Avenue, Colombo 7|Male|kavindu.jaya@email.com|Galle Fort|2025-06-26|Cancelled||12|1080.0
+GroupBooking|BKG1004|Dilan Madushanka|0718529630|203 Temple Road, Galle|Male|dilan.madu@email.com|Adventure Trek|2025-06-23|Pending||10|3600.0
+GroupBooking|BKG1005|Sansitha Galagama|071751518|752/1/23, Rukmale Road, Kottawa|Male|sansithagalagama@gmail.com|Beach Escape|2025-06-19|Confirmed||3|1350.0
