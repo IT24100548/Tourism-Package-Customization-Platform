@@ -1,0 +1,12 @@
+ADMIN,shihar4,1234,ss@gmail.com
+ADMIN,shihar,1234,akeeljabbar589@gmail.com
+ADMIN,shihar5,1234,as@gmail.com
+ADMIN,ashfak,2003,akeel@gmail.com
+ADMIN,akeel01,12345,IT24100373@my.sliit.lk
+ADMIN,akeel02,akeel@gmail.com,2003
+ADMIN,null,ss@gmail.com,2003
+ADMIN,shihar,IT24100373@my.sliit.lk,2003
+ADMIN,akeel03,2003,IT24100373@my.sliit.lk
+ADMIN,admin1,2003,as@gmail.com
+ADMIN,akeel05,2003,asd@gmail.com
+ADMIN,akeel06,2003,akeel@gmail.com
